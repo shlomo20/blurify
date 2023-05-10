@@ -42,18 +42,18 @@ const ContentScript = ({old, i}:{old?:HTMLImageElement, i:number}) => {
       there are {img.length} */}
       {/* <img src={old.src}  srcSet={old.srcset} className={old.className} height={old.height} width={old.width} /> */}
       {/* {JSON.stringify({...oldAt})} */}
-      {element}
-      {!visible && (
-        <Overlay blur={15} center>
-        </Overlay>
-      )}
+        {element}
+        {!visible && (
+          <Overlay style={{maxHeight: old.clientHeight ||old.height, maxWidth:old.clientWidth ||old.width,}} blur={15}  >
+          </Overlay>
+        )}
       <ActionIcon color="violet" size="xs" radius="xl" variant="filled" style={{zIndex:1000,position:'absolute',bottom:'3px', right:'3px'}} onClick={(e)=> {
-        e.stopPropagation()
-        e.preventDefault()
-        setVisible(!visible)
-      }}>
-        {visible? <MdOutlineVisibilityOff/>:<MdOutlineVisibility/>}
-      </ActionIcon>
+          e.stopPropagation()
+          e.preventDefault()
+          setVisible(!visible)
+        }}>
+          {visible? <MdOutlineVisibilityOff/>:<MdOutlineVisibility/>}
+        </ActionIcon>
     </MantineProvider>
   );
 }
