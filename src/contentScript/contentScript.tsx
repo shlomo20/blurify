@@ -1,13 +1,3 @@
-// chrome.runtime.sendMessage('I am loading content script', (response) => {
-//     console.log(response);
-//     console.log('I am content script')
-
-// })
-
-// window.onload = (event) => {
-//     console.log('page is fully loaded');
-// };
-
 
 import React, { DOMElement, ReactNode, createElement, useEffect, useState } from 'react'
 import './index.css'
@@ -15,7 +5,7 @@ import { ActionIcon, Button, Indicator, MantineProvider, Overlay, Text } from '@
 import {MdOutlineVisibility,MdOutlineVisibilityOff} from 'react-icons/md'
 
 
-const ContentScript = ({old}:{old?:HTMLImageElement}) => {
+const ContentScript = ({old, i}:{old?:HTMLImageElement, i:number}) => {
   const img = document.getElementsByTagName('img')
   const [element,setElement] = useState<ReactNode>()
   const [oldAt,setOldAt] = useState<{}>({})
@@ -37,6 +27,7 @@ const ContentScript = ({old}:{old?:HTMLImageElement}) => {
 
     const NewEl = createElement(old.tagName.toLowerCase(), {
       ...oldAt,
+      id:`blurify${i}`,
       children: old.innerHTML?old.innerHTML :undefined,
     })
     setElement(NewEl)

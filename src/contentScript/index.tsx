@@ -1,25 +1,44 @@
+// chrome.runtime.sendMessage('I am loading content script', (response) => {
+//     console.log(response);
+//     console.log('I am content script')
+
+// })
+
+// window.onload = (event) => {
+//     console.log('page is fully loaded');
+// };
+
+
+
+
+
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import ContentScript from './contentScript'
 
-function a(){
-    const img = document.getElementsByTagName('img')
-    const arrayImages = Array.from(img)
+async function a(){
+    const images = document.getElementsByTagName('img')
+    const arrayImages = Array.from(images)
 
-    arrayImages.map((image,i)=>{
+     arrayImages.map( (image,i)=>{
         // console.log(i, ': ', image)
-        if(image.clientWidth > 25 && image.clientHeight > 25){
+        if(image.clientWidth > 25 && image.clientHeight > 25 && !image.id.startsWith('blurify')  ){
             const newEl = document.createElement('div')
             // image.parentNode.insertBefore(newEl,image)
             image.parentNode.appendChild(newEl)
             image.parentNode.removeChild(image)
             const root =  createRoot(newEl)
 
-            root.render(<ContentScript  old={image} />)
+            root.render(<ContentScript  old={image} i={i} />)
             // image.parentNode.replaceChild(image ,newEl)
             // image.className ='test'
         }  
+        if(arrayImages.length ==i ){
+            return 'done'
+        }
     })
+
+    
 
     // const app = document.createElement('div')
 
@@ -37,4 +56,43 @@ function a(){
     // root.render(<ContentScript   />)
 }
 
-a()
+
+window.onload = async (event) => {
+    await a()
+    b()
+};
+
+function b(){
+    
+    const googleImageTab = document.getElementsByTagName('body')[0]
+    console.log("googleImageTab: ",googleImageTab)
+
+    function callback(mutationList) {
+        mutationList.forEach((mutation) => {
+        switch (mutation.type) {
+            case "childList":
+                console.log('mutation')
+                a()
+            break;
+            case "attributes":
+            /* An attribute value changed on the element in
+                mutation.target.
+                The attribute name is in mutation.attributeName, and
+                its previous value is in mutation.oldValue. */
+            break;
+        }
+        });
+    }
+
+    const observerOptions = {
+    childList: true,
+    attributes: true,
+
+    // Omit (or set to false) to observe only changes to the parent node
+    subtree: true,
+    };
+
+    const observer = new MutationObserver(callback);
+    observer.observe(googleImageTab, observerOptions);
+}
+
