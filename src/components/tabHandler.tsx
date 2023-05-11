@@ -67,12 +67,8 @@ const TabHandler = () => {
         if(refresh){
             const getUrls = async ()=>{
                 const localData = await chrome.storage.local.get(['open-sites', 'open-pages',])
-                // console.log('localData' , localData)
                 setOpenSites(localData['open-sites'])
                 setOpenPages(localData['open-pages'])
-                console.log(localData['open-sites'])
-                console.log(localData['open-pages'])
-                console.log('refreshed')
                 setRefresh(false)
             }
             getUrls()

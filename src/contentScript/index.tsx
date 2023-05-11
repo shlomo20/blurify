@@ -1,17 +1,3 @@
-// chrome.runtime.sendMessage('I am loading content script', (response) => {
-//     console.log(response);
-//     console.log('I am content script')
-
-// })
-
-// window.onload = (event) => {
-//     console.log('page is fully loaded');
-// };
-
-
-
-
-
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import ContentScript from './contentScript'
@@ -20,8 +6,20 @@ async function a(){
     const images = document.getElementsByTagName('img')
     const arrayImages = Array.from(images)
     const urls = await chrome.storage.local.get(['open-sites','open-pages'])
-    console.log('urls',  urls)
+    const mainUrl = window.location.origin 
+    const pageUrl = window.location.href.split('?')[0]
+    
+    // console.log('window.location',  pageUrl)
+    // console.log('urls',  urls)        
+    const openSites = urls['open-sites']
+    const openPages = urls['open-pages']
 
+    const openSitesFiltered = openSites.filter((url)=> mainUrl === url)
+    const openPagesFiltered = openPages.filter((url)=>  pageUrl === url)
+
+    if(openPagesFiltered.length > 0 || openSitesFiltered.length > 0 ){
+        return
+    }
 
      arrayImages.map( (image,i)=>{
         // console.log(i, ': ', image)
