@@ -14,10 +14,10 @@ async function a(){
     const openSites = urls['open-sites']
     const openPages = urls['open-pages']
 
-    const openSitesFiltered = openSites.filter((url)=> mainUrl === url)
-    const openPagesFiltered = openPages.filter((url)=>  pageUrl === url)
+    const openSitesFiltered = openSites?.filter((url)=> mainUrl === url)
+    const openPagesFiltered = openPages?.filter((url)=>  pageUrl === url)
 
-    if(openPagesFiltered.length > 0 || openSitesFiltered.length > 0 ){
+    if(openPagesFiltered?.length > 0 || openSitesFiltered?.length > 0 ){
         return
     }
 

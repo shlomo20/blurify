@@ -11,8 +11,8 @@ const TabHandler = () => {
     const [refresh, setRefresh] = useState<boolean>(true)
     
     const addSite = async() => {
-        const b = openSites.filter((url)=> mainUrl === url)
-        if(b.length> 0) {
+        const b = openSites?.filter((url)=> mainUrl === url)
+        if(b?.length> 0) {
             
             alert(`${b[0]} already exists`)
             return
@@ -26,8 +26,8 @@ const TabHandler = () => {
 
         
     const addPage =  async() => {
-        const b = openPages.filter((url)=> pageSpasticUrl === url)
-        if(b.length> 0) {
+        const b = openPages?.filter((url)=> pageSpasticUrl === url)
+        if(b?.length> 0) {
             alert(`${b[0]} already exists`)
             return
         }
