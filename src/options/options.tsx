@@ -1,10 +1,13 @@
+
 import React from "react";
 
+import App from "../components/app";
 const Options = () => {
+    
     return (
-        <div>
-            <h1 className="text-4xl text-green-500">Hello World</h1>
-        </div>
+        <App>
+            <div>hello </div>
+        </App>
     )
 };
 

@@ -19,6 +19,9 @@ import ContentScript from './contentScript'
 async function a(){
     const images = document.getElementsByTagName('img')
     const arrayImages = Array.from(images)
+    const urls = await chrome.storage.local.get(['open-sites','open-pages'])
+    console.log('urls',  urls)
+
 
      arrayImages.map( (image,i)=>{
         // console.log(i, ': ', image)
