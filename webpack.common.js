@@ -74,7 +74,8 @@ module.exports = {
             chunks(chunk){
                 return chunk.name !== 'contentScript'
               }
-        }
+        },
+        minimize: false
     }
 }
 

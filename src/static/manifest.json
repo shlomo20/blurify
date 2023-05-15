@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "react-boilerplate",
-    "description": "react-boilerplate for chrome extension",
-    "version": "1.0.0",
+    "name": "Blurify",
+    "description": "Blurify is a chrome extension that blurs the images of the page you are on. You are fully in control.",
+    "version": "0.0.1",
     "action" : {
         "default_popup": "popup.html",
         "default_title": "React Boilerplate",
@@ -10,9 +10,7 @@
     },
     "permissions": [
         "tabs",
-        "bookmarks",
-        "storage",
-        "identity"
+        "storage"
     ],
     "icons": {
         "16" : "icon.png",
