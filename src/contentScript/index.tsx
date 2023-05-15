@@ -26,8 +26,9 @@ async function a(){
         if(image.clientWidth > 25 && image.clientHeight > 25 && !image.id.startsWith('blurify')  ){
             const newEl = document.createElement('div')
             // image.parentNode.insertBefore(newEl,image)
-            image.parentNode.appendChild(newEl)
-            image.parentNode.removeChild(image)
+            // image.parentNode.appendChild(newEl)
+            // image.parentNode.removeChild(image)
+            image.parentNode.replaceChild(newEl, image)
             const root =  createRoot(newEl)
 
             root.render(<ContentScript  old={image} i={i} />)

@@ -33,7 +33,7 @@ const ContentScript = ({old, i}:{old?:HTMLImageElement, i:number}) => {
       {/* {JSON.stringify({...oldAt})} */}
       {/* <div className={`${!visible? 'blur-xl':'blur-0'}`}> */}
 
-      <img {...oldAt}  children={old.innerHTML?old.innerHTML :undefined} className={  visible? `blur-0${oldAt?.class}` :`blur-xl ${oldAt?.class}` } id={`blurify${i} ${oldAt?.id}`} /> 
+      <img {...oldAt}  children={old.innerHTML?old.innerHTML :undefined} className={  visible? `blur-0 ${oldAt?.class}` :`blur-xl ${oldAt?.class}` } id={`blurify${i} ${oldAt?.id}`} /> 
       <div className='absolute inset-x-0 bottom-2.5 z-10 flex justify-center'>
         <button color="violet" className='w-3 h-3 bg-violet-700 rounded-full text-black'  onClick={(e)=> {
           e.stopPropagation()
