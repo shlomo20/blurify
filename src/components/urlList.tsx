@@ -1,5 +1,5 @@
-import { Group, ScrollArea, Table, Text, ActionIcon, } from '@mantine/core'
-import { useLocalStorage } from '@mantine/hooks';
+// import { Group, ScrollArea, Table, Text, ActionIcon, } from '@mantine/core'
+// import { useLocalStorage } from '@mantine/hooks';
 import React, { useEffect, useState } from 'react'
 import {TbTrash} from 'react-icons/tb'
 
@@ -43,29 +43,29 @@ const UrlList = ({storeKey,columnName}:{storeKey:string,columnName:string  }) =>
     const rows = urlList?.map((item,i) => (
         <tr key={i}>
             <td>
-            <Group spacing="sm">
-                <Text fz="sm" fw={500}>
+            <div >
+                <p >
                 {item}
-                </Text>
-            </Group>
+                </p>
+            </div>
             </td>
 
             <td>
-                <Group spacing={0} position="right">
+                <div>
                 {/* <ActionIcon>
                     <IconPencil size="1rem" stroke={1.5} />
                 </ActionIcon> */}
-                <ActionIcon color="red" onClick={()=>handelDeleteUrl(item)}>
+                <button color="red" onClick={()=>handelDeleteUrl(item)}>
                     <TbTrash/>
-                </ActionIcon>
-                </Group>
+                </button>
+                </div>
             </td>
         </tr>
     ))
 
     return (
-        <ScrollArea>
-          <Table sx={{ minWidth: 300,maxWidth: 300 }} verticalSpacing="sm">
+        <div>
+          <table  style={{ minWidth: 300,maxWidth: 300 }} >
             <thead>
               <tr>
                 <th>{columnName.charAt(0).toUpperCase()}{columnName.slice(1) }</th>
@@ -78,8 +78,8 @@ const UrlList = ({storeKey,columnName}:{storeKey:string,columnName:string  }) =>
             {urlList?.length <= 0 &&
                 <div>You don't have any urls saved...</div>
             }
-          </Table>
-        </ScrollArea>
+          </table>
+        </div>
     )
 }
 

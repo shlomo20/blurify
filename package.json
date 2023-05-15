@@ -20,6 +20,7 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "style-loader": "^3.3.1",
+    "tailwindcss": "^3.3.2",
     "ts-loader": "^9.3.0",
     "typescript": "^4.6.4",
     "webpack": "^5.72.1",
@@ -27,29 +28,9 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.0",
-    "@mantine/carousel": "^6.0.10",
-    "@mantine/core": "^6.0.10",
-    "@mantine/dates": "^6.0.10",
-    "@mantine/dropzone": "^6.0.10",
-    "@mantine/form": "^6.0.10",
-    "@mantine/hooks": "^6.0.10",
-    "@mantine/modals": "^6.0.10",
-    "@mantine/notifications": "^6.0.10",
-    "@mantine/nprogress": "^6.0.10",
-    "@mantine/prism": "^6.0.10",
-    "@mantine/spotlight": "^6.0.10",
-    "@mantine/tiptap": "^6.0.10",
-    "@tabler/icons-react": "^2.17.0",
-    "@tiptap/extension-link": "^2.0.3",
-    "@tiptap/react": "^2.0.3",
-    "@tiptap/starter-kit": "^2.0.3",
     "autoprefixer": "^10.4.7",
-    "dayjs": "^1.11.7",
-    "embla-carousel-react": "^7.1.0",
     "postcss": "^8.4.14",
     "react-icons": "^4.8.0",
-    "react-router-dom": "6.2",
-    "tailwindcss": "^3.0.24"
+    "react-router-dom": "6.2"
   }
 }

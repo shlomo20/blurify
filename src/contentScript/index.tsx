@@ -1,6 +1,7 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import ContentScript from './contentScript'
+import './index.css'
 
 async function a(){
     const images = document.getElementsByTagName('img')
@@ -21,8 +22,7 @@ async function a(){
         return
     }
 
-     arrayImages.map( (image,i)=>{
-        // console.log(i, ': ', image)
+    arrayImages.map( (image,i)=>{
         if(image.clientWidth > 25 && image.clientHeight > 25 && !image.id.startsWith('blurify')  ){
             const newEl = document.createElement('div')
             // image.parentNode.insertBefore(newEl,image)

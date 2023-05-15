@@ -1,3 +1,7 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 .testEx {
     position: absolute;
     width: 100%;

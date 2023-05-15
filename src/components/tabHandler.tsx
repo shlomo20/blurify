@@ -1,5 +1,4 @@
-import { Button } from '@mantine/core';
-import { useLocalStorage } from '@mantine/hooks';
+
 import React, { useEffect, useState } from 'react'
 import UrlList from './urlList';
 
@@ -82,18 +81,18 @@ const TabHandler = () => {
 
     return (
         <div>
-            <Button onClick={()=>addPage()}>
+            <button onClick={()=>addPage()}>
                 add this page 
-            </Button>
-            <Button onClick={()=> addSite()}>
+            </button>
+            <button onClick={()=> addSite()}>
                 add this site 
-            </Button>
+            </button>
 
             <UrlList storeKey='open-sites' columnName='Sites'/>
             <UrlList  storeKey='open-pages' columnName='Pages'/>
-            <Button onClick={()=> clearAll()}>
+            <button onClick={()=> clearAll()}>
                 clear all 
-            </Button>
+            </button>
 
         </div>
     )
