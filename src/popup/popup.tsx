@@ -6,8 +6,10 @@ import TabHandler from "../components/tabHandler";
 const Popup = () => {
     return (
         <App>
-            <h1 className="text-4xl text-green-500">Blurify</h1>
-            <TabHandler/>
+            <div data-theme="mytheme" className=" p-3"> 
+                <h1 className="text-4xl text-green-500 pb-2">Blurify</h1>
+                <TabHandler/>
+            </div>
         </App>
     )
 };

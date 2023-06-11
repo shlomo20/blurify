@@ -55,7 +55,7 @@ const UrlList = ({storeKey,columnName}:{storeKey:string,columnName:string  }) =>
                 {/* <ActionIcon>
                     <IconPencil size="1rem" stroke={1.5} />
                 </ActionIcon> */}
-                <button color="red" onClick={()=>handelDeleteUrl(item)}>
+                <button className='btn btn-sm text-red-700 btn-ghost btn-circle' onClick={()=>handelDeleteUrl(item)}>
                     <TbTrash/>
                 </button>
                 </div>
@@ -64,8 +64,8 @@ const UrlList = ({storeKey,columnName}:{storeKey:string,columnName:string  }) =>
     ))
 
     return (
-        <div>
-          <table  style={{ minWidth: 300,maxWidth: 300 }} >
+        <div className="overflow-x-auto">
+          <table className="table" >
             <thead>
               <tr>
                 <th>{columnName.charAt(0).toUpperCase()}{columnName.slice(1) }</th>
@@ -76,7 +76,7 @@ const UrlList = ({storeKey,columnName}:{storeKey:string,columnName:string  }) =>
                 <tbody>{rows}</tbody>
             }
             {urlList?.length <= 0 &&
-                <div>You don't have any urls saved...</div>
+                <tr> <td><div>You don't have any urls saved...</div></td></tr>
             }
           </table>
         </div>

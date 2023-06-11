@@ -80,17 +80,21 @@ const TabHandler = () => {
     },[currentTabInfo])
 
     return (
-        <div>
-            <button onClick={()=>addPage()}>
-                add this page 
-            </button>
-            <button onClick={()=> addSite()}>
-                add this site 
-            </button>
-
-            <UrlList storeKey='open-sites' columnName='Sites'/>
-            <UrlList  storeKey='open-pages' columnName='Pages'/>
-            <button onClick={()=> clearAll()}>
+        <div className=''>
+            <div className='flex flex-row justify-around'>
+                <button className='btn btn-sm btn-outline btn-secondary' onClick={()=>addPage()}>
+                    add this page 
+                </button>
+                <button className='btn btn-sm btn-outline ' onClick={()=> addSite()}>
+                    add this site 
+                </button>
+            </div>
+            <div> 
+                <UrlList storeKey='open-sites' columnName='Sites'/>
+                <UrlList  storeKey='open-pages' columnName='Pages'/>
+            </div>
+            <div className='h-12 w-8'></div>
+            <button className='btn btn-sm btn-outline btn-warning absolute bottom-3 right-3 ' onClick={()=> clearAll()}>
                 clear all 
             </button>
 
